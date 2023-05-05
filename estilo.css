@@ -1,0 +1,84 @@
+/* quando se utiliza o asterisco em CSS ele estila todo os elementos dentro do documento HTML*/
+
+* {
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: linear-gradient(to right, #1900fd, #41b8);
+}
+
+.grid-container {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  min-height: 100vh;
+  grid-template-columns: repeat(
+    4,
+    100px
+  ); /* aplicado o número de colunas 4 com cada uma de 100 pixels*/
+  grid-template-rows: minmax(120px, auto) /* minimo vai ser 120 pixels, mas se precisar, deixe automático. Devido a uma linha da calculadora ser flexível (acima do AC,DEL e divisão*/ repeat(
+      5,
+      100px
+    ); /* aplicado o número de linhas como 5*/
+    
+}
+
+.grid-container > button {
+  cursor: pointer;
+  font-size: 2rem;
+  border: none;
+  outline: none;
+  background-color: rgba(4, 28, 163, 0.533);
+  color: white;
+}
+
+.grid-container #numb:hover {
+  background-color: #eee;
+  color: #1900fd;
+}
+.grid-container .span-two:hover {
+  background-color: #eee;
+  color: #1900fd;
+}
+
+.grid-container .operator:hover {
+  background-color: rgba(4, 28, 163, 0.533);
+  color: #eee;
+}
+
+.grid-container .operator {
+  background: rgba(255, 255, 255, 0.644);
+  color: #1900fd;
+}
+
+.span-two {
+  /*Aqui ele vai pedir para expandir duas colunas*/
+  grid-column: span 2;
+}
+
+.grid-container > .output {
+  /*Vai instruir a a coluna se expandir por completo em uma linha*/
+  grid-column: 1 / -1;
+  background-color: rgba(255, 255, 255, 0.644);
+  display: flex; /**/
+  flex-direction: column;
+  align-items: flex-end; /*irão ficar na parte final do output*/
+  justify-content: space-around; /*espaço entre os elementos e a borda*/
+  padding: 10px;
+  word-wrap: break-word; /* vai possibilitar o comportamento flexível quando o usuário exceder o limte de caracteres, sendo responsivo*/
+  word-break: break-all;
+}
+
+.grid-container > .output > .previous-operand {
+  color: #120397;
+  font-size: 1.5rem;
+}
+.grid-container > .output > .current-operand {
+  color: #1900fd;
+  font-size: 2.5em;
+}
